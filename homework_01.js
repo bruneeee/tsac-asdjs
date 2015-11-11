@@ -7,7 +7,7 @@ var basearray = [b];
 //var z = ex_1_I(array);
 //var z = ex_1_R(array);
 //var z = ex_2_I(a);
-//var z = ex_2_R(a);
+var z = ex_2_R(a);
 //var z = ex_3_I(array);
 //var z = ex_3_R(array);
 //var z = ex_4_I(a,b);
@@ -27,7 +27,7 @@ var basearray = [b];
 //
 //
 
-console.log(z);
+//console.log(z);
 
 /* 1°
 Dato un array di interi, 
