@@ -7,14 +7,14 @@ var basearray = [b];
 //var z = ex_1_I(array);
 //var z = ex_1_R(array);
 //var z = ex_2_I(a);
-var z = ex_2_R(a);
+//var z = ex_2_R(a);
 //var z = ex_3_I(array);
 //var z = ex_3_R(array);
 //var z = ex_4_I(a,b);
 //var z = ex_4_R(a,b);
 //var z = ex_5_I(a,b);
 //var z = ex_5_R(a,b);
-//var z = ex_6_I(a,b);
+var z = ex_6_I(a,b);
 //var z = ex_6_R(a,b);
 //var z = ex_7_I(a,b);
 //var z = ex_7_R(a,b);
@@ -90,7 +90,7 @@ function ex_3_R(arr){
 	if(arr[0] >= 0 )
 		return arr[0]/10 + ex_3_R(arr.slice(1))/10;
 	else
-		return 0;
+		return ;
 }
 
 /* 4°
@@ -154,21 +154,18 @@ Ricorsivo - Spazio O(n) - Tempo O(n)
 */
 function ex_6_I(n,m){
 	var ris = 0;
-	while (n>m){
+	while (n>=m){
 		ris++;
 		n -= m;
 	}
-	console.log(ris);
-	console.log(n);
-	return 0;
+	return ris + "resto" + n;
 }
 function ex_6_R(n,m){
-	if(n>m){
+	if(n>=m){
 		n-=m;
-		return 1+ ex_6_R(n,m);
+		return (1 + ex_6_R(n,m));
 	}
-	console.log(n);
-	return 0;
+	return " resto " + n;
 }
 
 /* 7°
