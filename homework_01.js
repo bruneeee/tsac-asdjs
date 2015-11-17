@@ -1,8 +1,8 @@
 //ercizi da consegnare il 30.10.15
 
 var array = [0,1,2,3,4,5,6,7,8,9];
-var a = 3;
-var b = 4;
+var a = 5;
+var b = 6;
 var basearray = [b];
 //var z = ex_1_I(array);
 //var z = ex_1_R(array);
@@ -14,20 +14,20 @@ var basearray = [b];
 //var z = ex_4_R(a,b);
 //var z = ex_5_I(a,b);
 //var z = ex_5_R(a,b);
-var z = ex_6_I(a,b);
+//var z = ex_6_I(a,b);
 //var z = ex_6_R(a,b);
 //var z = ex_7_I(a,b);
 //var z = ex_7_R(a,b);
 //var z = ex_8_I(array);
 //
 //var z = ex_9_I(array);
-//var z = ex_9_R(array,0);
+var z = ex_9_R(array,0);
 //var z = ex_10_I(a,b);
 //var z = ex_10_R(a,b,basearray);
 //
 //
 
-//console.log(z);
+console.log(z);
 
 /* 1°
 Dato un array di interi, 
@@ -87,10 +87,13 @@ function ex_3_I(arr){
     return sum/arr.length;
 }
 function ex_3_R(arr){
-	if(arr[0] >= 0 )
-		return arr[0]/10 + ex_3_R(arr.slice(1))/10;
-	else
-		return ;
+	function avgRec(myarr){
+		if(myarr.length ==0)
+			return 0;
+		else
+			return myarr[0] + avgRec(myarr.slice(1));
+	}
+	return avgRec(arr) / arr.length;
 }
 
 /* 4°
@@ -154,18 +157,28 @@ Ricorsivo - Spazio O(n) - Tempo O(n)
 */
 function ex_6_I(n,m){
 	var ris = 0;
-	while (n>=m){
+	while (n >= m){
 		ris++;
 		n -= m;
 	}
-	return ris + "resto" + n;
+	return [ris, n];
 }
 function ex_6_R(n,m){
-	if(n>=m){
-		n-=m;
-		return (1 + ex_6_R(n,m));
-	}
-	return " resto " + n;
+	/*function div(a,b){
+        if(a>=b){
+		    a-=b;
+		    return (1 + div(a,b));
+	    }
+	    return 0;
+    }
+    return [div(n,m),a];*/
+    if(n < m){
+        return [0,n];
+    }
+    else{
+        var res = ex_6_R(n-m,m)
+        return [res[0]+1,res[1]];
+    }
 }
 
 /* 7°
@@ -174,14 +187,12 @@ Si calcoli la potenza (x^y) di due numeri x y maggiori o uguali a zero,
  Iterativo - Spazio O(1) - Tempo O(n)
 Ricorsivo - Spazio O(n) - Tempo O(n)
 */
-
 function ex_7_I(n,m){
 	sum = 1;
 	for(var i=0;i<m;i++)
 		sum *= n;
 	return sum;
 }
-
 function ex_7_R(n,m){
 	if(m>0){
 		return n*ex_7_R(n,--m);
@@ -199,10 +210,10 @@ function ex_8_I(arr){
 	for(var l= 0;l<mat.length;l++)
 		mat[l]=new Array(Math.sqrt(arr.length));
 
-		var k =0;
-		for(var i=0;i<Math.sqrt(arr.length);i++)
-			for(var j=0;j<Math.sqrt(arr.length);j++)
-				mat[i][j] = arr[k++];
+    var k =0;
+    for(var i=0;i<Math.sqrt(arr.length);i++)
+        for(var j=0;j<Math.sqrt(arr.length);j++)
+            mat[i][j] = arr[k++];
 	return mat;
 }
 function ex_8_R(arr){
@@ -224,15 +235,18 @@ function ex_9_I(arr){
 	}
 	return arr;
 }
-function ex_9_R(arr,i){
-	if(i<arr.length/2){
-		var app;
-		app = arr[i];
-		arr[i]=arr[arr.length-1-i];
-		arr[arr.length-1-i] = app; 
-		return ex_9_R(arr,++i);
-	}
-	return arr;
+function ex_9_R(arr){
+	function reverse(arr,i){
+        if(i<arr.length/2){
+            var app;
+            app = arr[i];
+            arr[i]=arr[arr.length-1-i];
+            arr[arr.length-1-i] = app;
+            return reverse (arr,++i);
+        }
+        return arr;
+    }
+	return reverse(arr,0);
 }
 
 /* 10°

@@ -1,7 +1,12 @@
 //ercizi da consegnare il 17.11.15
 
 //console.log(ex_1_F([1,2,3,7]));
+//console.log(ex_2_F(3));
 //console.log(ex_3_F([5,1,2,3,4,5,6,7,8,9]));
+//console.log(ex_4_F(3,4));
+//console.log(ex_5_F(3,4));
+//console.log(ex_6_f(6,6));
+//console.log(ex_7_F(2,3));
 //console.log(ex_8_F([1,2,3,4,5,6,7,8,9]));
 //console.log(ex_9_F([1,2,3,7]));
 
@@ -26,7 +31,10 @@ function ex_1_F(arr){
  n*n lol!!
  */
 function ex_2_F(n){
-
+    var myarray = createArray(0,n*2);
+    return myarray
+        .filter(x => x%2 != 0)
+        .reduce((acc,x) => acc +x,0);
 }
 
 /* 3°
@@ -36,7 +44,7 @@ function ex_3_F(arr){
     return arr.reduce(
             function(acc,x){
                 return acc+x;
-            },0)/10;
+            },0)/arr.length;
 }
 
 /* 4°
@@ -45,7 +53,11 @@ function ex_3_F(arr){
  Nel caso che b fosse minore di a, calcolare la somma nell’intervallo [b,a]
  */
 function ex_4_F(n,m){
-
+    if(n<m)
+        myarray = createArray(n,m);
+    else
+        myarray = createArray(m,n);
+    return myarray.reduce((acc,x) => acc+x,0);
 }
 
 /* 5°
@@ -53,6 +65,8 @@ function ex_4_F(n,m){
  operatore somma.
  */
 function ex_5_F(n,m){
+    var myarray = createArray(0,n);
+    return myarray.reduce((acc,x) => acc + n,0);
 }
 
 /* 6°
@@ -67,9 +81,8 @@ function ex_6_F(n,m){
  Si calcoli la potenza (x^y) di due numeri x y maggiori o uguali a zero,
  tramite l’utilizzo dei soli operatori somma, sottrazione e della funzione mult.
  */
-
 function ex_7_F(n,m){
-
+    return createArray(1,m).reduce((acc,x) => acc*n,1);
 }
 
 /* 8°
@@ -80,7 +93,7 @@ function ex_8_F(arr){
     var mat = new Array(Math.sqrt(arr.length));
     for(var i= 0;i<mat.length;i++)
         mat[i]= arr.splice(0,mat.length);
-return mat;
+    return mat;
 }
 
 /* 9°
@@ -104,7 +117,14 @@ function ex_10_F(n,m){
  Data una lista di interi A, si riordini gli elementi della lista in modo tale che tutti gli elementi
  dispari precedano nello stesso ordine tutti gli elementi pari.
  */
-
 function ex_11_F(n,m){
 
+}
+
+function createArray(a,b){
+    var myarray = [];
+    for(var i=a;i<=b;i++){
+        myarray.push(i);
+    }
+    return myarray;
 }
