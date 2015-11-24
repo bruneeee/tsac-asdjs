@@ -32,14 +32,15 @@ Stack.prototype.reverse = function(){
 
 function dec2bin(a){
     function rec(stack,n){
-        if(n == 0){
-            return stack;
-        }
-        else {
+        if(n > 0){
             stack.push(n % 2);
             return rec(stack, Math.floor(n / 2));
         }
+        return stack;
     }
-    //var s2 = new Stack();
-    return rec(new Stack(),a).reverse().toString();
+    var str = "";
+    var bin = rec(new Stack(),a).reverse();
+    for(var i = bin.length-1 ; i>=0 ; i--)
+        str += bin[i];
+    return str;
 }
