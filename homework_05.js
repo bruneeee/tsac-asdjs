@@ -59,15 +59,8 @@ PriorityQueue.prototype.front = function() {
 PriorityQueue.prototype.isEmpty = function() {
     return (this.coda.length == 0);
 };
-PriorityQueue.prototype.dimension = function() {
+PriorityQueue.prototype.size = function() {
     return this.coda.length;
-};
-PriorityQueue.prototype.stamp = function() {
-    var i = 0;
-    while (i < this.coda.length) {
-        console.log(this.coda[i]);
-        i++;
-    }
 };
 
 
@@ -103,13 +96,6 @@ PriorityQueueCallback.prototype.isEmpty = function() {
 };
 PriorityQueueCallback.prototype.size = function() {
     return this.coda.length;
-};
-PriorityQueueCallback.prototype.stamp = function() {
-    var i = 0;
-    while (i < this.coda.length) {
-        console.log(this.coda[i]);
-        i++;
-    }
 };
 
 
