@@ -42,12 +42,14 @@ PriorityQueue.prototype.enqueue = function(val, prio) {
     if(this.coda.length == 0)
         this.coda.push(obj);
     else {
-        for (i = 0;i < this.coda.length && !trovato;i++) {
+        for (var i = 0;i < this.coda.length && !trovato;i++) {
             if (obj.priority > this.coda[i].priority) {
                 this.coda.splice(i, 0, obj);
                 trovato = true;
             }
         }
+        if(!trovato)
+            this.coda.splice(this.coda.length,0,obj);
     }
 };
 PriorityQueue.prototype.dequeue = function() {

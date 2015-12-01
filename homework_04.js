@@ -9,19 +9,15 @@ function Stack(){
 Stack.prototype.push = function(e){
     this.myarray.push(e);
 };/*Aggiunge un elemento all'array*/
-
 Stack.prototype.pop = function(){
     return this.myarray.pop();
 };/*Ritorna l'ultimo elemento e lo toglie dall'array*/
-
 Stack.prototype.peek = function(){
     return this.myarray[this.myarray.length -1];
 };/*Ritorna l'ulltimo elemento ma lo mantiene*/
-
 Stack.prototype.isEmpty = function(){
     return this.myarray.length == 0;
 };/*Banale -.-"*/
-
 Stack.prototype.reverse = function(){
     return this.myarray.reverse();
 };/*Ritorna l'array invertito*/
